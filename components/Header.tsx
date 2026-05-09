@@ -25,7 +25,7 @@ export function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 shrink-0">
           <Image
-            src="/logo.png"
+            src="/logo.jpg"
             alt="Intelligent Bala"
             width={36}
             height={36}
