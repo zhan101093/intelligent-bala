@@ -10,7 +10,7 @@ const PHONE = "77711535152";
 
 function buildWhatsAppMessage(
   items: ReturnType<typeof useCart>["items"],
-  form: { name: string; phone: string; city: string; note: string }
+  form: { name: string; phone: string; city: string; zip: string; note: string }
 ): string {
   const total = items.reduce((s, i) => s + i.price * i.qty, 0);
   let msg = "🛒 Жаңа тапсырыс — Intelligent Bala\n";
@@ -27,13 +27,14 @@ function buildWhatsAppMessage(
   msg += `Аты: ${form.name}\n`;
   msg += `Тел: ${form.phone}\n`;
   if (form.city) msg += `Қала: ${form.city}\n`;
+  if (form.zip) msg += `Пошта индексі: ${form.zip}\n`;
   if (form.note) msg += `Ескертпе: ${form.note}\n`;
   return msg;
 }
 
 export function CheckoutClient() {
   const { items, totalPrice, clearCart } = useCart();
-  const [form, setForm] = useState({ name: "", phone: "", city: "", note: "" });
+  const [form, setForm] = useState({ name: "", phone: "", city: "", zip: "", note: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
 
@@ -143,6 +144,20 @@ export function CheckoutClient() {
               placeholder="Алматы, Абай к-сі 10"
               value={form.city}
               onChange={(e) => setForm({ ...form, city: e.target.value })}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="zip" className="block text-sm font-bold text-text-muted mb-1.5">
+              Пошта индексі
+            </label>
+            <Input
+              id="zip"
+              type="text"
+              inputMode="numeric"
+              placeholder="050000"
+              value={form.zip}
+              onChange={(e) => setForm({ ...form, zip: e.target.value.replace(/\D/g, "") })}
             />
           </div>
 

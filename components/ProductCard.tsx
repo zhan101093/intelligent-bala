@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { Minus, Plus, ShoppingCart } from "lucide-react";
 import { Product } from "@/types";
 import { useCart } from "@/context/CartContext";
-import { formatPrice } from "@/lib/utils";
 import { Badge } from "./ui/Badge";
 import { Button } from "./ui/Button";
+import { ProductReviews } from "./ProductReviews";
 
 interface ProductCardProps {
   product: Product;
@@ -18,6 +19,16 @@ export function ProductCard({ product, onAdd }: ProductCardProps) {
   const { isInCart, getQty, addItem, updateQty } = useCart();
   const inCart = isInCart(product.id);
   const qty = getQty(product.id);
+
+  const [slideIdx, setSlideIdx] = useState(0);
+
+  useEffect(() => {
+    if (product.images.length <= 1) return;
+    const timer = setInterval(() => {
+      setSlideIdx((i) => (i + 1) % product.images.length);
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [product.images.length]);
 
   function handleAdd() {
     addItem(product);
@@ -41,10 +52,10 @@ export function ProductCard({ product, onAdd }: ProductCardProps) {
           )}
           {product.images.length > 0 ? (
             <Image
-              src={product.images[0]}
+              src={product.images[slideIdx]}
               alt={product.nameKz}
               fill
-              className="object-contain p-2"
+              className="object-contain p-2 transition-opacity duration-300"
               sizes="(max-width: 640px) 50vw, 25vw"
               loading="lazy"
             />
@@ -52,6 +63,16 @@ export function ProductCard({ product, onAdd }: ProductCardProps) {
             <span role="img" aria-label={product.nameKz}>
               {product.emoji}
             </span>
+          )}
+          {product.images.length > 1 && (
+            <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 flex gap-1 z-10">
+              {product.images.map((_, i) => (
+                <span
+                  key={i}
+                  className={`w-1.5 h-1.5 rounded-full transition-all ${i === slideIdx ? "bg-primary" : "bg-white/70"}`}
+                />
+              ))}
+            </div>
           )}
         </div>
       </Link>
@@ -109,8 +130,18 @@ export function ProductCard({ product, onAdd }: ProductCardProps) {
               Себетке қосу
             </Button>
           )}
+
+          <Link
+            href={`/product/${product.id}`}
+            className="text-[11px] text-text-light hover:text-primary transition-colors text-center font-medium"
+          >
+            Толығырақ →
+          </Link>
         </div>
       </div>
+
+      {/* Reviews */}
+      <ProductReviews productId={product.id} />
     </article>
   );
 }

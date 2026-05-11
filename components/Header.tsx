@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useCart } from "@/context/CartContext";
-import { ShoppingCart } from "lucide-react";
 
 function IgIcon({ size = 14 }: { size?: number }) {
   return (
@@ -17,7 +16,7 @@ const IG_URL =
   "https://www.instagram.com/intelligent_bala?igsh=NW9wank2cXNxbTFj";
 
 export function Header() {
-  const { totalQty } = useCart();
+  useCart();
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border h-16 flex items-center px-4 md:px-6">
@@ -50,17 +49,6 @@ export function Header() {
             <span>Instagram</span>
           </a>
 
-          <Link
-            href="/cart"
-            className="relative flex items-center gap-2 bg-primary text-white text-sm font-bold rounded-full px-4 py-2 hover:bg-primary-dark transition-colors"
-            aria-label={`Себет, ${totalQty} тауар`}
-          >
-            <ShoppingCart size={16} />
-            <span className="hidden sm:inline">Себет</span>
-            <span className="bg-white text-primary text-xs font-black w-5 h-5 rounded-full flex items-center justify-center leading-none">
-              {totalQty}
-            </span>
-          </Link>
         </div>
       </div>
     </header>

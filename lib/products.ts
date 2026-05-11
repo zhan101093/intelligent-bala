@@ -20,7 +20,7 @@ export const PRODUCTS: Product[] = [
     hit: true,
     emoji: "📚",
     images: imgs(1, 5),
-    rating: 4.9,
+    rating: 5.0,
     isNew: false,
   },
   {
@@ -35,7 +35,7 @@ export const PRODUCTS: Product[] = [
     hit: true,
     emoji: "🎵",
     images: imgs(2, 4),
-    rating: 4.8,
+    rating: 5.0,
     isNew: false,
   },
   {
@@ -50,7 +50,7 @@ export const PRODUCTS: Product[] = [
     hit: true,
     emoji: "🗣️",
     images: imgs(3, 3),
-    rating: 4.7,
+    rating: 5.0,
     isNew: false,
   },
   {
@@ -65,7 +65,7 @@ export const PRODUCTS: Product[] = [
     hit: false,
     emoji: "📖",
     images: imgs(4, 3),
-    rating: 4.5,
+    rating: 5.0,
     isNew: true,
   },
   {
@@ -80,7 +80,7 @@ export const PRODUCTS: Product[] = [
     hit: false,
     emoji: "📕",
     images: imgs(5, 3),
-    rating: 4.3,
+    rating: 5.0,
     isNew: false,
   },
   {
@@ -95,7 +95,7 @@ export const PRODUCTS: Product[] = [
     hit: false,
     emoji: "🔍",
     images: imgs(6, 2),
-    rating: 4.6,
+    rating: 5.0,
     isNew: true,
   },
   {
@@ -110,7 +110,7 @@ export const PRODUCTS: Product[] = [
     hit: false,
     emoji: "📓",
     images: imgs(7, 2),
-    rating: 4.4,
+    rating: 5.0,
     isNew: false,
   },
   {
@@ -125,7 +125,7 @@ export const PRODUCTS: Product[] = [
     hit: false,
     emoji: "🔢",
     images: imgs(8, 3),
-    rating: 4.5,
+    rating: 5.0,
     isNew: false,
   },
   {
@@ -140,7 +140,7 @@ export const PRODUCTS: Product[] = [
     hit: false,
     emoji: "✋",
     images: imgs(9, 3),
-    rating: 4.2,
+    rating: 5.0,
     isNew: false,
   },
   {
@@ -155,7 +155,7 @@ export const PRODUCTS: Product[] = [
     hit: true,
     emoji: "🤖",
     images: imgs(10, 3),
-    rating: 4.9,
+    rating: 5.0,
     isNew: false,
   },
   {
@@ -170,7 +170,7 @@ export const PRODUCTS: Product[] = [
     hit: false,
     emoji: "🦕",
     images: imgs(11, 4),
-    rating: 4.4,
+    rating: 5.0,
     isNew: true,
   },
   {
@@ -185,7 +185,7 @@ export const PRODUCTS: Product[] = [
     hit: true,
     emoji: "🔤",
     images: imgs(12, 3),
-    rating: 4.8,
+    rating: 5.0,
     isNew: false,
   },
   {
@@ -200,7 +200,7 @@ export const PRODUCTS: Product[] = [
     hit: false,
     emoji: "🇬🇧",
     images: imgs(13, 2),
-    rating: 4.3,
+    rating: 5.0,
     isNew: false,
   },
   {
@@ -215,7 +215,7 @@ export const PRODUCTS: Product[] = [
     hit: false,
     emoji: "🐄",
     images: imgs(14, 3),
-    rating: 4.5,
+    rating: 5.0,
     isNew: false,
   },
   {
@@ -230,7 +230,7 @@ export const PRODUCTS: Product[] = [
     hit: false,
     emoji: "🌍",
     images: imgs(15, 2),
-    rating: 4.6,
+    rating: 5.0,
     isNew: true,
   },
   {
@@ -245,7 +245,7 @@ export const PRODUCTS: Product[] = [
     hit: false,
     emoji: "🗺️",
     images: imgs(16, 3),
-    rating: 4.4,
+    rating: 5.0,
     isNew: false,
   },
   {
@@ -260,7 +260,7 @@ export const PRODUCTS: Product[] = [
     hit: true,
     emoji: "🦾",
     images: imgs(17, 2),
-    rating: 4.9,
+    rating: 5.0,
     isNew: false,
   },
   {
@@ -275,7 +275,7 @@ export const PRODUCTS: Product[] = [
     hit: false,
     emoji: "✏️",
     images: imgs(18, 2),
-    rating: 4.3,
+    rating: 5.0,
     isNew: false,
   },
   {
@@ -290,7 +290,7 @@ export const PRODUCTS: Product[] = [
     hit: false,
     emoji: "📝",
     images: imgs(19, 4),
-    rating: 4.2,
+    rating: 5.0,
     isNew: false,
   },
   {
@@ -305,7 +305,7 @@ export const PRODUCTS: Product[] = [
     hit: false,
     emoji: "🔊",
     images: imgs(20, 3),
-    rating: 4.1,
+    rating: 5.0,
     isNew: false,
   },
 ];

@@ -4,6 +4,7 @@ import "./globals.css";
 import { CartProvider } from "@/context/CartContext";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { CartFAB } from "@/components/CartFAB";
 
 const nunito = Nunito({
   variable: "--font-display",
@@ -38,6 +39,7 @@ export default function RootLayout({
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
+          <CartFAB />
         </CartProvider>
       </body>
     </html>
