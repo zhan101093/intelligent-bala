@@ -31,3 +31,35 @@ export interface Filters {
   onlyNew: boolean;
   sort: SortOption;
 }
+
+export interface OrderItem {
+  productId: number;
+  nameKz: string;
+  qty: number;
+  price: number;
+}
+
+export interface Order {
+  id: number;
+  createdAt: string;
+  name: string;
+  phone: string;
+  city: string | null;
+  zip: string | null;
+  note: string | null;
+  total: number;
+  items: OrderItem[];
+}
+
+export interface ProductStat {
+  productId: number;
+  nameKz: string;
+  totalQty: number;
+}
+
+export interface RevenueSummary {
+  weeklyOrderCount: number;
+  weeklyTotal: number;
+  monthlyOrderCount: number;
+  monthlyTotal: number;
+}

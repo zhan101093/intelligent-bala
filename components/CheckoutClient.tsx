@@ -45,12 +45,33 @@ export function CheckoutClient() {
     return e;
   }
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     const errs = validate();
     if (Object.keys(errs).length > 0) {
       setErrors(errs);
       return;
+    }
+    try {
+      await fetch("/api/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          phone: form.phone,
+          city: form.city,
+          zip: form.zip,
+          note: form.note,
+          items: items.map((i) => ({
+            productId: i.id,
+            nameKz: i.nameKz,
+            qty: i.qty,
+            price: i.price,
+          })),
+        }),
+      });
+    } catch {
+      // non-blocking: WhatsApp order proceeds regardless
     }
     const msg = buildWhatsAppMessage(items, form);
     window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`, "_blank");
